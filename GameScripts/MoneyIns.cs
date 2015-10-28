@@ -2,13 +2,13 @@
 using System.Collections;
 
 public class MoneyIns : MonoBehaviour {
-	
-	public AddCurrency addCurrency = new AddCurrency();
 
-	void Awake()
+	public AddCurrency addCurrency;
+
+	void Start()
 	{
 		addCurrency.addFiftyDollars();
 		addCurrency.addNickel();
-		Debug.Log(addCurrency.getValue());
+		Debug.Log(addCurrency.aMoney.getValue());
 	}
 }

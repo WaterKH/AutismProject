@@ -6,7 +6,6 @@ public class Money {
 
 	public Bill aBill = new Bill();
 	public Coin aCoin = new Coin();
-	public AddCurrency addCurrency = new AddCurrency();
 
 	public double value = 0;
 	public string tag = "NULL"; // Not sure why I added this...

@@ -11,16 +11,20 @@ public class CurrencyGenerator : MonoBehaviour {
 	 */
 	public Game theGame;
 	public bool onGoingTransaction = false;
+	public AddCurrency addCurrency = new AddCurrency();
 
 	public double GenerateRandomValue()
 	{
-		while(theGame.currentGameState == theGame.GameState.moneyExchanger)
+		double valueResult = 0.0;
+		while(theGame.currentGameState == (int)Game.GameState.moneyExchanger)
 		{
 			if(!onGoingTransaction)
 			{
 				//Randomly Generate sum here
+				valueResult = addCurrency.aMoney.getValue();
 			}
 		}
+		return valueResult;
 	}
 
 }

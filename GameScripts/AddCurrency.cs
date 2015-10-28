@@ -1,14 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AddCurrency : Money {
+public class AddCurrency : MonoBehaviour {
 
 	public Game theGame;
-	
-	public AddCurrency() // Initializes the theGame variable in order to access the currency values
-	{
-		theGame = GameObject.FindGameObjectWithTag("GameDriver").GetComponent<Game>();
-	}
+	public Money aMoney = new Money();
 
 	/*
 	 * Methods to add values to the left of the decimal point
@@ -16,37 +12,36 @@ public class AddCurrency : Money {
 	 */ 
 	public void addDollar(string value)
 	{
-		base.value += theGame.billDictionary[value];
+		aMoney.value += theGame.billDictionary[value];
 	}
 	public void addOneDollar()
 	{
-		base.value += theGame.billDictionary["one"];
+		aMoney.value += theGame.billDictionary["one"];
 	}
 	public void addTwoDollars()
 	{
-		base.value += theGame.billDictionary["two"];
+		aMoney.value += theGame.billDictionary["two"];
 	}
 	public void addFiveDollars()
 	{
-		base.value += theGame.billDictionary["five"];
+		aMoney.value += theGame.billDictionary["five"];
 	}
 	public void addTenDollars()
 	{
-		base.value += theGame.billDictionary["ten"];
+		aMoney.value += theGame.billDictionary["ten"];
 	}
 	public void addTwentyDollars()
 	{
-		base.value += theGame.billDictionary["twenty"];
+		aMoney.value += theGame.billDictionary["twenty"];
 	}
 	public void addFiftyDollars()
 	{
-		base.value += theGame.billDictionary["fifty"];
+		aMoney.value += theGame.billDictionary["fifty"];
 	}
 	public void addHundredDollars()
 	{
-		base.value += theGame.billDictionary["hundred"];
+		aMoney.value += theGame.billDictionary["hundred"];
 	}
-
 	
 	/*
 	 * Methods to add values to the right of the decimal point
@@ -54,31 +49,31 @@ public class AddCurrency : Money {
 	 */ 
 	public void addCoin(string value)
 	{
-		base.value += theGame.coinDictionary[value];
+		aMoney.value += theGame.coinDictionary[value];
 	}
 	public void addPenny()
 	{
-		base.value += theGame.coinDictionary["penny"];
+		aMoney.value += theGame.coinDictionary["penny"];
 	}
 	public void addNickel()
 	{
-		base.value += theGame.coinDictionary["nickel"];
+		aMoney.value += theGame.coinDictionary["nickel"];
 	}
 	public void addDime()
 	{
-		base.value += theGame.coinDictionary["dime"];
+		aMoney.value += theGame.coinDictionary["dime"];
 	}
 	public void addQuarter()
 	{
-		base.value += theGame.coinDictionary["quarter"];
+		aMoney.value += theGame.coinDictionary["quarter"];
 	}
 	public void addHalfDollar()
 	{
-		base.value += theGame.coinDictionary["halfDollar"];
+		aMoney.value += theGame.coinDictionary["halfDollar"];
 	}
 	public void addFullDollar()
 	{
-		base.value += theGame.coinDictionary["fullDollar"];
+		aMoney.value += theGame.coinDictionary["fullDollar"];
 	}
 
 }
