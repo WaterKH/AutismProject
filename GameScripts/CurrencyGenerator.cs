@@ -11,7 +11,7 @@ public class CurrencyGenerator : MonoBehaviour {
 	 */
 	public Game theGame;
 	public bool onGoingTransaction = false;
-	public AddCurrency addCurrency = new AddCurrency();
+	public AddCurrency addCurrency;
 
 	public double GenerateRandomValue()
 	{
