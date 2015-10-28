@@ -5,7 +5,7 @@ using System.Collections;
 public class Coin {
 
 	public string typeOfCoin = "NULL";
-	
+
 	public Coin()
 	{
 		typeOfCoin = "NULL";
