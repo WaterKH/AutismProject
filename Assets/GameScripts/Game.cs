@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Game : MonoBehaviour {
-	
+
+	// These Gamestates will be for each game. Not sure we need them, but if so we will have them.
 	public enum GameState
 	{
 		menu = 0,

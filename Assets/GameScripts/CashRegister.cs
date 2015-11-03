@@ -12,6 +12,14 @@ public class CashRegister : MonoBehaviour {
 
 	//TODO Add a method that generates the different change neccessary to complete the transaction
 
+	/*
+	 * Adds change to the total change we have accrued. 
+	 * 
+	 * We pass in the button pushed and switch on its name. We then add to our total change the 
+	 * 	value that is associated with the name (ie 1 - one dollar, .25 - quarter). We then 
+	 * 	update our text variable to display the current change we have.
+	 * 
+	 */ 
 	public void addToAccruedChange(Button aButton)
 	{
 		string currencyName = aButton.name;
@@ -54,6 +62,20 @@ public class CashRegister : MonoBehaviour {
 		displayChange.text = this.accruedChange.ToString();
 	}
 
+	/*
+	 * Checks if the change we are returning is correct.
+	 * [NOT YET IMPLEMENTED]
+	 * 
+	 * We first create a double instance (changeToMatch) which is our current price of the 
+	 * 	item decremented by the value returned by the method customerPayment which is
+	 * 	the dollar amount the customer is paying with. 
+	 * IF our change is greater than our double instance (changeToMatch) we print out that
+	 * 	we have given too much.
+	 * ELSE IF our change is less than our double instance (changeToMatch) we print out that
+	 * 	we have given too little.
+	 * ELSE we know we have given the correct amount and clear our change to get ready for
+	 * 	the next customer.
+	 */ 
 	public void giveChangeToCustomer()// I need to think of a better function name...
 	{
 		double changeToMatch = (customerPayment.aMoney.getValue() - customerPayment.customerPayment());
@@ -73,6 +95,13 @@ public class CashRegister : MonoBehaviour {
 		}
 	}
 
+	/*
+	 * Clears the total change we have.
+	 * 
+	 * We set our change to 0. We then update our text variable to display the 
+	 * 	current change we have.
+	 * 
+	 */ 
 	public void clearAccruedChange()
 	{
 		this.accruedChange = 0;
