@@ -64,7 +64,6 @@ public class CashRegister : MonoBehaviour {
 
 	/*
 	 * Checks if the change we are returning is correct.
-	 * [NOT YET IMPLEMENTED]
 	 * 
 	 * We first create a double instance (changeToMatch) which is our current price of the 
 	 * 	item decremented by the value returned by the method customerPayment which is
@@ -78,8 +77,11 @@ public class CashRegister : MonoBehaviour {
 	 */ 
 	public void giveChangeToCustomer()// I need to think of a better function name...
 	{
-		double changeToMatch = (customerPayment.aMoney.getValue() - customerPayment.customerPayment());
-		Debug.Log(changeToMatch.ToString());
+		double changeToMatch = (customerPayment.customerPayment() - customerPayment.aMoney.getValue());
+		Debug.Log(changeToMatch);
+		Debug.Log(accruedChange);
+		Debug.Log(customerPayment.customerPayment());
+
 		if(accruedChange > changeToMatch)
 		{
 			Debug.Log("The change you are giving back is too much");
@@ -88,10 +90,11 @@ public class CashRegister : MonoBehaviour {
 		{
 			Debug.Log("The change you are giving back is not enough");
 		}
-		else
+		else if(accruedChange == changeToMatch)
 		{
 			Debug.Log("You returned the correct change. Congratulations!");
 			this.clearAccruedChange();
+			customerPayment.onGoingTransaction = false;
 		}
 	}
 

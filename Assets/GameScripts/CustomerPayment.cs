@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class customerPaymentValue : MonoBehaviour {
+public class CustomerPayment : MonoBehaviour {
 	
 	public Game theGame;
 	public bool onGoingTransaction = false;
@@ -35,8 +35,13 @@ public class customerPaymentValue : MonoBehaviour {
 			{
 				aMoney = new Money(payments[indexOfPayments]);
 				displayPrice.text = aMoney.getValue().ToString(); 
-				displaycustomerPaymentValue.text =  this.customerPaymentValue().ToString();
+				displaycustomerPayment.text =  this.customerPayment().ToString();
 				++indexOfPayments;
+				onGoingTransaction = true;
+			}
+			else if(onGoingTransaction)
+			{
+				Debug.Log("Complete the current customer before continuing.");
 			}
 		}
 	}
