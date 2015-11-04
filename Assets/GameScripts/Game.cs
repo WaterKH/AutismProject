@@ -13,8 +13,8 @@ public class Game : MonoBehaviour {
 		otherGame2 = 3,
 	};
 	public int currentGameState = 1; // Dummy value set because 0 is menu
-	public Dictionary<string, double> coinDictionary = new Dictionary<string, double>();
-	public Dictionary<string, double> billDictionary = new Dictionary<string, double>();
+	public Dictionary<string, decimal> coinDictionary = new Dictionary<string, decimal>();
+	public Dictionary<string, decimal> billDictionary = new Dictionary<string, decimal>();
 
 	/*
 	 * Methods used in MoneyExchanger
@@ -24,16 +24,16 @@ public class Game : MonoBehaviour {
 	 */
 	public void setUpCurrency()
 	{
-		billDictionary.Add ("one", 1.00);
-		billDictionary.Add ("five", 5.00);
-		billDictionary.Add ("ten", 10.00);
-		billDictionary.Add ("twenty", 20.00);
-		billDictionary.Add ("fifty", 50.00);
+		billDictionary.Add ("one", 1.00m);
+		billDictionary.Add ("five", 5.00m);
+		billDictionary.Add ("ten", 10.00m);
+		billDictionary.Add ("twenty", 20.00m);
+		billDictionary.Add ("fifty", 50.00m);
 
-		coinDictionary.Add ("penny", 0.01);
-		coinDictionary.Add ("nickel", 0.05);
-		coinDictionary.Add ("dime", 0.10);
-		coinDictionary.Add ("quarter", 0.25);
+		coinDictionary.Add ("penny", 0.01m);
+		coinDictionary.Add ("nickel", 0.05m);
+		coinDictionary.Add ("dime", 0.10m);
+		coinDictionary.Add ("quarter", 0.25m);
 	}
 
 	// Use this for initialization

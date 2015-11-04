@@ -8,23 +8,23 @@ public class Money {
 	public Bill aBill = new Bill();
 	public Coin aCoin = new Coin();
 
-	public double value = 0;
+	public decimal value = 0.0m;
 
 	public Money()
 	{
-		value = 0;
+		value = 0.0m;
 	}
-	public Money(double aValue)
+	public Money(decimal aValue)
 	{
 		this.setValue(aValue);
 	}
 
-	public void setValue(double aValue)
+	public void setValue(decimal aValue)
 	{
 		value = aValue;
 	}
 
-	public double getValue()
+	public decimal getValue()
 	{
 		return value;
 	}

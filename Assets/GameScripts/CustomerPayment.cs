@@ -6,25 +6,25 @@ public class CustomerPayment : MonoBehaviour {
 	
 	public Game theGame;
 	public bool onGoingTransaction = false;
-	public double[] payments = {1.25, 2.50, 3.80, 4.13, 5.01};
+	public decimal[] payments = {1.25m, 2.50m, 3.80m, 4.13m, 5.01m};
 	public int indexOfPayments = 0;
 	public Text displayPrice;
 	public Text displaycustomerPayment;
 	public Money aMoney = new Money();
-	public double customerPaymentValue = 0.0;
+	public decimal customerPaymentValue = 0.0m;
 
 	/*
-	 * Generates a value from our double array (payments)
+	 * Generates a value from our decimal array (payments)
 	 * 
 	 * IF our current game state equals the instance of the game "Money Exchanger"
 	 * 	IF we do not have another transaction (ie a customer) going on AND our index
 	 * 	  	is less than the size of our array.
 	 * 	 We create a new instance of Money with the value at our index within payments.
 	 * 	 We then set our price text value to be displayed on screen to the value we 
-	 * 		found at our index within our double array (payments). We also set our
-	 * 		customer's payment equal to the double value we get from the function call,
+	 * 		found at our index within our decimal array (payments). We also set our
+	 * 		customer's payment equal to the decimal value we get from the function call,
 	 * 		customerPayment. Finally, we increment the index we are pointing to within
-	 * 		our double array (payments).
+	 * 		our decimal array (payments).
 	 * 
 	 */
 	public void generatePriceFromPayments()//GenerateRandomValue()
@@ -59,28 +59,28 @@ public class CustomerPayment : MonoBehaviour {
 	 * 
 	 * [NOT SURE THIS WILL WORK WITH A WHILE LOOP]
 	 */ 
-	public double customerPayment() // Dollars Only
+	public decimal customerPayment() // Dollars Only
 	{
 		while(customerPaymentValue <= aMoney.getValue())
 		{
-			if(aMoney.getValue () == 0.0)
+			if(aMoney.getValue () == 0.00m)
 			{
 				break;
 			}
 
-			if(aMoney.getValue() >= 1.00 && aMoney.getValue() < 5.00)
+			if(aMoney.getValue() >= 1.00m && aMoney.getValue() < 5.00m)
 			{
 				customerPaymentValue += theGame.billDictionary["one"];
 			}
-			else if(aMoney.getValue() >= 5.00 && aMoney.getValue () < 10)
+			else if(aMoney.getValue() >= 5.00m && aMoney.getValue () < 10.00m)
 			{
 				customerPaymentValue += theGame.billDictionary["five"];
 			}
-			else if(aMoney.getValue() >= 10 && aMoney.getValue() < 20)
+			else if(aMoney.getValue() >= 10.00m && aMoney.getValue() < 20.00m)
 			{
 				customerPaymentValue += theGame.billDictionary["ten"];
 			}
-			else if(aMoney.getValue() >= 20 && aMoney.getValue() < 50)
+			else if(aMoney.getValue() >= 20.00m && aMoney.getValue() < 50.00m)
 			{
 				customerPaymentValue += theGame.billDictionary["twenty"];
 			}

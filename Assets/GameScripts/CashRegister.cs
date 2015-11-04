@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class CashRegister : MonoBehaviour {
 
 	public Game theGame;
-	public double accruedChange = 0;
-	public double totalChangeInRegister = 0; // Not fully implemented yet
+	public decimal accruedChange = 0.0m;
+	public decimal totalChangeInRegister = 0.0m; // Not fully implemented yet
 	public CustomerPayment customerPayment;
 	public Text displayChange;
 
@@ -65,22 +65,19 @@ public class CashRegister : MonoBehaviour {
 	/*
 	 * Checks if the change we are returning is correct.
 	 * 
-	 * We first create a double instance (changeToMatch) which is our current price of the 
+	 * We first create a decimal instance (changeToMatch) which is our current price of the 
 	 * 	item decremented by the value returned by the method customerPayment which is
 	 * 	the dollar amount the customer is paying with. 
-	 * IF our change is greater than our double instance (changeToMatch) we print out that
+	 * IF our change is greater than our decimal instance (changeToMatch) we print out that
 	 * 	we have given too much.
-	 * ELSE IF our change is less than our double instance (changeToMatch) we print out that
+	 * ELSE IF our change is less than our decimal instance (changeToMatch) we print out that
 	 * 	we have given too little.
 	 * ELSE we know we have given the correct amount and clear our change to get ready for
 	 * 	the next customer.
 	 */ 
 	public void giveChangeToCustomer()// I need to think of a better function name...
 	{
-		double changeToMatch = (customerPayment.customerPayment() - customerPayment.aMoney.getValue());
-		Debug.Log(changeToMatch);
-		Debug.Log(accruedChange);
-		Debug.Log(customerPayment.customerPayment());
+		decimal changeToMatch = (customerPayment.customerPayment() - customerPayment.aMoney.getValue());
 
 		if(accruedChange > changeToMatch)
 		{
@@ -95,6 +92,7 @@ public class CashRegister : MonoBehaviour {
 			Debug.Log("You returned the correct change. Congratulations!");
 			this.clearAccruedChange();
 			customerPayment.onGoingTransaction = false;
+			customerPayment.generatePriceFromPayments();
 		}
 	}
 
@@ -115,27 +113,27 @@ public class CashRegister : MonoBehaviour {
 	 * Methods to add values to the left of the decimal point
 	 * 	ie - 14.XX; Adds dollars
 	 */ 
-	public double addDollar(string value)
+	public decimal addDollar(string value)
 	{
 		return theGame.billDictionary[value];
 	}
-	public double addOneDollar()
+	public decimal addOneDollar()
 	{
 		return theGame.billDictionary["one"];
 	}
-	public double addFiveDollars()
+	public decimal addFiveDollars()
 	{
 		return theGame.billDictionary["five"];
 	}
-	public double addTenDollars()
+	public decimal addTenDollars()
 	{
 		return theGame.billDictionary["ten"];
 	}
-	public double addTwentyDollars()
+	public decimal addTwentyDollars()
 	{
 		return theGame.billDictionary["twenty"];
 	}
-	public double addFiftyDollars()
+	public decimal addFiftyDollars()
 	{
 		return theGame.billDictionary["fifty"];
 	}
@@ -144,23 +142,23 @@ public class CashRegister : MonoBehaviour {
 	 * Methods to add values to the right of the decimal point
 	 * 	ie - XX.45; Adds cents
 	 */ 
-	public double addCoin(string value)
+	public decimal addCoin(string value)
 	{
 		return theGame.coinDictionary[value];
 	}
-	public double addPenny()
+	public decimal addPenny()
 	{
 		return theGame.coinDictionary["penny"];
 	}
-	public double addNickel()
+	public decimal addNickel()
 	{
 		return theGame.coinDictionary["nickel"];
 	}
-	public double addDime()
+	public decimal addDime()
 	{
 		return theGame.coinDictionary["dime"];
 	}
-	public double addQuarter()
+	public decimal addQuarter()
 	{
 		return theGame.coinDictionary["quarter"];
 	}
